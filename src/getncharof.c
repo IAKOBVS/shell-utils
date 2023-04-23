@@ -5,7 +5,7 @@
 
 int main(int argc, char **argv)
 {
-	if (unlikely(argc < 3)) {
+	if (unlikely(argc != 3)) {
 		puts("usage: ./getncharof <Nth index> <string>\ne.g.,\n./getncharof 1 hello\ne");
 		return 1;
 	}

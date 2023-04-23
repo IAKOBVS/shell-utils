@@ -6,8 +6,8 @@
 
 int main(int argc, char **argv)
 {
-	assert(argc > 1);
-	char *const delim = strrchr(argv[1], '/');
+	assert(argc == 2);
+	char *RESTRICT const delim = strrchr(argv[1], '/');
 	if (likely(delim))
 		*delim = '\0';
 	puts(argv[1]);
