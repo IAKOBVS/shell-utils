@@ -1,0 +1,4 @@
+#!/bin/sh
+SCRIPTS_FOLDER=$HOME/.local/bin
+[ -d $SCRIPTS_FOLDER ] || { echo "$SCRIPTS_FOLDER is not a directory! Change the $SCRIPTS_FOLDER variable."; exit 1;}
+mv ./bin/* $SCRIPTS_FOLDER && echo "Binaries successfully moved to $SCRIPTS_FOLDER"
