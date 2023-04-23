@@ -1,4 +1,5 @@
 #!/bin/sh
+mkdir -p ./bin
 if [ -s /bin/gcc ]; then
 	compiler=gcc
 elif [ -s /bin/clang ]; then
