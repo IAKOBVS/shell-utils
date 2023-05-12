@@ -10,7 +10,6 @@ else
 	echo 'Compile source files manually in ./src'
 	exit 1
 fi
-cleanext() { echo "$1" | sed 's/\.[^.]*$//';}
 src=$(find ./src -name '*.c')
 echo 'Compiling...'
 for file in $src; do
