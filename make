@@ -15,4 +15,5 @@ echo 'Compiling...'
 for file in $src; do
 	$compiler -O3 -flto $(realpath $file) -o ./bin/$(cleanext $(basename $file)) &
 done
+wait
 echo 'Done!'
