@@ -6,7 +6,7 @@
 
 int main(int argc, char **argv)
 {
-	assert(argc == 2);
+	assert(argv[1]);
 	const char *argvp = argv[1];
 	char *ap = argv[1];
 	for (;; ++ap, ++argvp) {

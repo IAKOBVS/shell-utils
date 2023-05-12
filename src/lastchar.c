@@ -6,7 +6,7 @@
 
 int main(int argc, char **argv)
 {
-	assert(argc == 2);
+	assert(argv[1]);
 	putchar(argv[1][strlen(argv[1]) - 1]);
 	return 0;
 }

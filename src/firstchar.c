@@ -5,7 +5,7 @@
 
 int main(int argc, char **argv)
 {
-	assert(argc == 2);
+	assert(argv[1]);
 	putchar(argv[1][0]);
 	return 0;
 }

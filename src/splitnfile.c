@@ -11,11 +11,8 @@ int main(int argc, char **argv)
 {
 	char delim;
 	switch (argc) {
-	case 0:
-	case 1:
-	case 2:
 	default:
-		puts("usage:\n./splitnfile <n-chunks> <filename> <delim>\ndelim defaults to \\n if not given");
+		puts("usage: ./splitnfile <n-chunks> <filename> <delim>\ndelim defaults to \\n if not given");
 		return 1;
 	case 3:
 		delim = '\n';

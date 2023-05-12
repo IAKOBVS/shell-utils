@@ -6,7 +6,7 @@
 
 int main(int argc, char **argv)
 {
-	assert(argc == 2);
+	assert(argv[1]);
 	char *RESTRICT ap = argv[1] + strlen(argv[1]) - 1;
 	for (;; --ap) {
 		if (unlikely(ap <= argv[1]))

@@ -6,7 +6,7 @@
 
 int main(int argc, char **argv)
 {
-	assert(argc == 2);
+	assert(argv[1]);
 	char *RESTRICT const delim = strrchr(argv[1], '.');
 	if (likely(delim))
 		*delim = '\0';
