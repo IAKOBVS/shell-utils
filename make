@@ -1,8 +1,9 @@
 #!/bin/sh
 mkdir -p ./bin
-if [ -s /bin/gcc ]; then
+__exists__() { test -f /bin/$1 || test -f /usr/bin/$1;}
+if __exists__ gcc; then
 	compiler=gcc
-elif [ -s /bin/clang ]; then
+elif __exists__ clang; then
 	compiler=clang
 else
 	echo 'No gcc or clang available in /bin/'
@@ -13,7 +14,7 @@ cleanext() { echo "$1" | sed 's/\.[^.]*$//';}
 src=$(find ./src -name '*.c')
 echo 'Compiling...'
 for file in $src; do
-	$compiler -O3 -flto $(realpath $file) -o ./bin/$(cleanext $(basename $file)) &
+	$compiler -O3 -flto $(realpath $file) -o ./bin/$(basename ${file%.*}) &
 done
 wait
 echo 'Done!'

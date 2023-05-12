@@ -1,5 +1,9 @@
 #!/bin/sh
 SCRIPTS_FOLDER=$HOME/.local/bin/scripts
-test -d $SCRIPTS_FOLDER && mv ./bin/* $SCRIPTS_FOLDER \
-	&& echo "Binaries successfully moved to $SCRIPTS_FOLDER" \
-	|| echo "$SCRIPTS_FOLDER is not a directory! Change the $SCRIPTS_FOLDER variable."
+if test -d $SCRIPTS_FOLDER
+then
+	mv ./bin/* $SCRIPTS_FOLDER
+	echo "Binaries successfully moved to $SCRIPTS_FOLDER"
+else
+	echo "$SCRIPTS_FOLDER is not a directory! Change the $SCRIPTS_FOLDER variable."
+fi
