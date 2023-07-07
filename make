@@ -13,7 +13,8 @@ fi
 src=$(find ./src -name '*.c')
 echo 'Compiling...'
 for file in $src; do
-	$compiler -O3 -flto $(realpath $file) -o ./bin/$(basename ${file%.*}) &
+	$compiler -O3 -flto -march=native $(realpath $file) -o ./bin/$(basename ${file%.*}) &
 done
 wait
 echo 'Done!'
+./install

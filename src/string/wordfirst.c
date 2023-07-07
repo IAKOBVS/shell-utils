@@ -38,6 +38,6 @@ int main(int argc, char **argv)
 		break;
 	}
 SKIP:
-	puts(argvp);
+	fwrite(argvp, 1, ap - argvp, stdout);
 	return 0;
 }

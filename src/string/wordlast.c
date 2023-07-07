@@ -7,7 +7,8 @@
 int main(int argc, char **argv)
 {
 	assert(argv[1]);
-	char *RESTRICT ap = argv[1] + strlen(argv[1]) - 1;
+	char *RESTRICT const end = argv[1] + strlen(argv[1]);
+	char *RESTRICT ap = end - 1;
 	for (;; --ap) {
 		if (unlikely(ap <= argv[1]))
 			goto SKIP;
@@ -38,6 +39,6 @@ int main(int argc, char **argv)
 		break;
 	}
 SKIP:
-	puts(ap);
+	fwrite(ap, 1, end - ap, stdout);
 	return 0;
 }

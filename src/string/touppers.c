@@ -11,10 +11,11 @@ int main(int argc, char **argv)
 			*argp = *argp - 'a' + 'A';
 		default:
 			continue;
-		case '\0':;
+		case '\0':
+			break;
 		}
 		break;
 	}
-	puts(argv[1]);
+	fwrite(argv[1], 1, argp - argv[1], stdout);
 	return 0;
 }
