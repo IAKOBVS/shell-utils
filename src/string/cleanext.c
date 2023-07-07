@@ -15,10 +15,8 @@ int main(int argc, char **argv)
 	assert(argv[1]);
 	size_t len = strlen(argv[1]);
 	char *RESTRICT const delim = memrchr(argv[1], '.', len);
-	if (likely(delim)) {
-		*delim = '\0';
+	if (likely(delim))
 		len = delim - argv[1];
-	}
 	fwrite(argv[1], 1, len, stdout);
 	return 0;
 }

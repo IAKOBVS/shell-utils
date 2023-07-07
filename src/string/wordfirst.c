@@ -32,7 +32,6 @@ int main(int argc, char **argv)
 		case '\t':
 		case '\r':
 		case ' ':
-			*ap = '\0';
 		case '\0':;
 		}
 		break;
