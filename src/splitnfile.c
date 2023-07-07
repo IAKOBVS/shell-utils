@@ -2,10 +2,33 @@
 #include <string.h>
 #include <stdlib.h>
 #include <assert.h>
+#include <sys/stat.h>
+#include <stdio.h>
 #include "../lib/shell-utils.h"
 
 #define FILENAME argv[2]
 #define NUM_CHUNKS argv[1]
+
+ALWAYS_INLINE
+size_t sizeof_file(const char *RESTRICT filename)
+{
+	struct stat st;
+	return !stat(filename, &st) ? st.st_size : 0;
+}
+
+ALWAYS_INLINE
+int cat(char *RESTRICT buf,
+		const char *RESTRICT filename,
+		const size_t sizeof_file)
+{
+	FILE *fp = fopen(filename, "r");
+	if (unlikely(!fp))
+		return 0;
+	fread(buf, 1, sizeof_file, fp);
+	fclose(fp);
+	*(buf + sizeof_file) = '\0';
+	return 1;
+}
 
 int main(int argc, char **argv)
 {
